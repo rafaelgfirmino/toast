@@ -6,6 +6,7 @@
   <title>Stencil Component Starter</title>
 
   <script type="module" src="/build/toast.esm.js"></script>
+
   <script nomodule src="/build/toast.js"></script>
   <link rel="stylesheet" href="/build/toast.css">
   <style>
@@ -17,59 +18,80 @@
   </style>
 </head>
 <body>
-<componentt-toast data-theme="dark" data-placement="bottom">
-  <componentt-toast-item title="Title Prop" icon="fi fi flaticon-success" type="success" toast-title="success"
-                         progress="true">
-  </componentt-toast-item>
-  <componentt-toast-item title="Title Prop" icon="fi fi flaticon-info" type="info" toast-title="Error" progress="false">
-    0 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-    standard dummy text ever since the 1500s, when an unknown printer took a galley of
-    type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text
-    of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dumm
-    text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-    make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
-    took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of
-    the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since
-    the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-  </componentt-toast-item>
-  <componentt-toast-item title="Title Prop" icon="fi flaticon-alert" type="warning" toast-title="Toast Title" false>
-    0 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-    standard dummy text ever since the 1500s, when an unknown printer took a galley of
-    type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text
-    of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dumm
-    text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-    make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
-    took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of
-    the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since
-    the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-  </componentt-toast-item>
-  <componentt-toast-item title="Title Prop" icon="fi fi flaticon-error" type="error" toast-title="Toast Title" false>
-    0 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-    standard dummy text ever since the 1500s, when an unknown printer took a galley of
-    type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text
-    of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dumm
-    text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-    make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
-    took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of
-    the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since
-    the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-  </componentt-toast-item>
-  <componentt-toast-item title="Title Prop" icon="fi fi flaticon-error" type="error" toast-title="Toast Title" false>
-    0 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-    standard dummy text ever since the 1500s, when an unknown printer took a galley of
-    type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text
-    of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dumm
-    text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-    make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
-    took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of
-    the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since
-    the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-  </componentt-toast-item>
-</componentt-toast>
+<!--<componentt-toast data-theme="dark" data-placement="bottom">-->
+<!--  <componentt-toast-item title="Title Prop" icon="fi fi flaticon-success" type="success" toast-title="success"-->
+<!--                         cooldown="10000" progress="true">-->
+<!--  </componentt-toast-item>-->
+<!--  <componentt-toast-item title="Title Prop" icon="fi fi flaticon-info" type="info" toast-title="Error" progress="true">-->
+<!--    0 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's-->
+<!--    standard dummy text ever since the 1500s, when an unknown printer took a galley of-->
+<!--    type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text-->
+<!--    of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dumm-->
+<!--    text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to-->
+<!--    make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry.-->
+<!--    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer-->
+<!--    took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of-->
+<!--    the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since-->
+<!--    the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.-->
+<!--  </componentt-toast-item>-->
+<!--  <componentt-toast-item title="Title Prop" icon="fi flaticon-alert" type="warning" toast-title="Toast Title"-->
+<!--                         progress="true">-->
+<!--    0 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's-->
+<!--    standard dummy text ever since the 1500s, when an unknown printer took a galley of-->
+<!--    type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text-->
+<!--    of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dumm-->
+<!--    text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to-->
+<!--    make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry.-->
+<!--    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer-->
+<!--    took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of-->
+<!--    the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since-->
+<!--    the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.-->
+<!--  </componentt-toast-item>-->
+<!--  <componentt-toast-item title="Title Prop" icon="fi fi flaticon-error" type="error" toast-title="Toast Title"-->
+<!--                         progress="true">-->
+<!--    0 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's-->
+<!--    standard dummy text ever since the 1500s, when an unknown printer took a galley of-->
+<!--    type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text-->
+<!--    of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dumm-->
+<!--    text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to-->
+<!--    make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry.-->
+<!--    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer-->
+<!--    took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of-->
+<!--    the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since-->
+<!--    the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.-->
+<!--  </componentt-toast-item>-->
+<!--  <componentt-toast-item title="Title Prop" icon="fi fi flaticon-error" type="error" toast-title="Toast Title" false>-->
+<!--    0 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's-->
+<!--    standard dummy text ever since the 1500s, when an unknown printer took a galley of-->
+<!--    type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text-->
+<!--    of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dumm-->
+<!--    text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to-->
+<!--    make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry.-->
+<!--    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer-->
+<!--    took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of-->
+<!--    the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since-->
+<!--    the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.-->
+<!--  </componentt-toast-item>-->
+<!--</componentt-toast>-->
 <!--    <componentt-toast data-theme="dark" data-placement="top"/>-->
+
+<script type="module">
+  import {WrapperToast} from '/build/index.esm.js'
+
+  const wrapperToast = new WrapperToast({
+    theme: 'light',
+    placement: 'bottom'
+  })
+  const button = document.createElement('button')
+  button.innerHTML = 'ok, this slot works fine'
+  button.addEventListener('click', () => console.log('I will clicked'))
+
+
+  wrapperToast.emit({
+    type: 'success', title: 'Title Prop', progress: true, cooldown: 100000, description: `
+  <img style="-webkit-user-select: none;margin: auto;" src="https://placekitten.com/200/300">
+  `, actions: [button]
+  })
+</script>
 </body>
 </html>

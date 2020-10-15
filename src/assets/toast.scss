@@ -102,7 +102,7 @@ $transition-out: cubic-bezier(0.25, 0, 1, 1);
     background-color: transparentize(#E1E3E6, 0.85);
     grid-column: progress;
     height: 4px;
-    width: 100%;
+    width: calc(100% - 5px);
     z-index: 20;
 
     &--hide {
@@ -115,8 +115,8 @@ $transition-out: cubic-bezier(0.25, 0, 1, 1);
     height: 4px;
     position: absolute;
     transition: width 100ms $transition-default;
-    width: 100%;
     z-index: 10;
+    width: calc(100% - 15px);
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -253,6 +253,9 @@ $transition-out: cubic-bezier(0.25, 0, 1, 1);
         a, i {
           color: var(--componentt-toast-error-color);
         }
+      }
+      &__bar::-webkit-progress-value, &__bar {
+        background-color: var(--componentt-toast-error-color);
       }
     }
   }
