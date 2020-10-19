@@ -11,6 +11,7 @@ export namespace Components {
     interface ComponenttToastItem {
         "autoRemove": boolean;
         "cooldown": number;
+        "hasDescription": boolean;
         "icon": string;
         "progress": boolean;
         "toastTitle": string;
@@ -43,6 +44,7 @@ declare namespace LocalJSX {
     interface ComponenttToastItem {
         "autoRemove"?: boolean;
         "cooldown"?: number;
+        "hasDescription"?: boolean;
         "icon"?: string;
         "progress"?: boolean;
         "toastTitle"?: string;

@@ -76,20 +76,19 @@
 <!--    <componentt-toast data-theme="dark" data-placement="top"/>-->
 
 <script type="module">
-  import {WrapperToast} from '/build/index.esm.js'
+  import {Toast} from '/build/index.esm.js'
 
-  const wrapperToast = new WrapperToast({
+  const toast = new Toast({
     theme: 'light',
-    placement: 'bottom'
+    placement: 'top'
   })
   const button = document.createElement('button')
   button.innerHTML = 'ok, this slot works fine'
   button.addEventListener('click', () => console.log('I will clicked'))
 
-
-  wrapperToast.emit({
-    type: 'success', title: 'Title Prop', progress: true, cooldown: 100000, description: `
-  0 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+  toast.emit({
+    type: 'success', title: 'Have a description', progress: true, cooldown: 100000, description: `
+    0 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
     standard dummy text ever since the 1500s, when an unknown printer took a galley of
     type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text
     of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dumm
@@ -100,6 +99,9 @@
     the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since
     the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
   `, actions: [button]
+  })
+  toast.emit({
+    type: 'success', title: 'Title Prop', progress: false, cooldown: 100000,  actions: [button]
   })
 </script>
 </body>

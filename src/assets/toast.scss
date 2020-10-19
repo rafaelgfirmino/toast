@@ -94,7 +94,6 @@ $font-size: 12px;
       display: inline-block;
       font-size: 1.3rem;
       padding: 0 8px 10px;
-      text-transform: uppercase;
       color: var(--brain-toast-action-color);
 
       &:hover,
@@ -208,7 +207,7 @@ $font-size: 12px;
   &--success {
     #{$root} {
       &__description,
-      &__icon {
+      &__icon, &__action{
         button,
         a, i {
           color: var(--componentt-toast-success-color);
@@ -220,7 +219,8 @@ $font-size: 12px;
   &--info {
     #{$root} {
       &__description,
-      &__icon {
+
+      &__icon, &__action{
         button,
         a, i {
           color: var(--componentt-toast-info-color);
@@ -243,7 +243,7 @@ $font-size: 12px;
     #{$root} {
       &__description,
       &__icon,
-      &__action {
+      &__icon, &__action{
         button,
         a, i {
           color: var(--componentt-toast-warning-color);
@@ -266,7 +266,7 @@ $font-size: 12px;
     #{$root} {
       &__description,
       &__icon,
-      &__action {
+      &__icon, &__action{
         button,
         a, i {
           color: var(--componentt-toast-error-color);
@@ -282,17 +282,18 @@ $font-size: 12px;
     width: 12px;
   }
 
-  #toggleColapse{
-  }
-
-
 }
 
 [data-theme~='dark'] {
   #{$root} {
+    &__item {
+      background: #222222;
+    }
+
     &__title,
     &__close > button,
-    &__description {
+    &__description,
+    &__viewMoreOrLessButton button{
       color: #f0f0f0;
     }
   }

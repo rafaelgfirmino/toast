@@ -13,6 +13,7 @@ export class Item {
   @Prop() autoRemove: boolean = true;
   @Prop() viewMoreButtonText: string = 'view more'
   @Prop() viewLessButtonText: string = 'view less'
+  @Prop() hasDescription: boolean = false
 
   @State() buttomViewText: string;
   @State() progressValue: number = 100;
@@ -37,14 +38,14 @@ export class Item {
   }
 
   async componentDidLoad() {
-    const descriptionTag = document.querySelector('.componentt-toast__description')
+    const descriptionTag = this.element.querySelector('.componentt-toast__description')
     if (descriptionTag && descriptionTag.scrollHeight > 250) {
       await this.toggleCollapse()
     }
   }
 
   async toggleCollapse() {
-    const descriptionTag = await document.querySelector('.componentt-toast__description')
+    const descriptionTag = await this.element.querySelector('.componentt-toast__description')
     descriptionTag.classList.toggle('componentt-toast__item--collapse')
     if (descriptionTag.classList.contains('componentt-toast__item--collapse')) {
       this.buttomViewText = this.viewMoreButtonText
@@ -91,12 +92,17 @@ export class Item {
           <button id="componentt-toast__close-" onClick={() => this.removeElement()}>X</button>
         </div>
         <div class="componentt-toast__title">{this.toastTitle}</div>
-        <div class="componentt-toast__description">
-          <slot></slot>
-        </div>
-        <div class="componentt-toast__viewMoreOrLessButton">
-          <button id="viewMoreOrLessButton"  onClick={() => this.toggleCollapse()}>{this.buttomViewText}</button>
-        </div>
+        {this.hasDescription ?
+          <div class="componentt-toast__description">
+            <slot></slot>
+          </div>
+          : ''}
+        {this.hasDescription ?
+          <div class="componentt-toast__viewMoreOrLessButton">
+            <button id="viewMoreOrLessButton" onClick={() => this.toggleCollapse()}>{this.buttomViewText}</button>
+          </div>
+          : ''
+        }
         <div class="componentt-toast__action">
           <slot name="actions"></slot>
         </div>
