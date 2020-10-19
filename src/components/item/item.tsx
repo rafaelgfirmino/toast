@@ -11,11 +11,15 @@ export class Item {
   @Prop() progress: boolean = true;
   @Prop() cooldown: number = 5000;
   @Prop() autoRemove: boolean = true;
+  @Prop() viewMoreButtonText: string = 'view more'
+  @Prop() viewLessButtonText: string = 'view less'
 
+  @State() buttomViewText: string;
   @State() progressValue: number = 100;
   @State() counter: number = 0;
   @State() stopCooldown: boolean = false;
   @State() interval: number
+  @State() showMore: boolean = false
   @Element() private element: HTMLElement
 
   @Listen('mouseenter', {capture: true})
@@ -28,8 +32,25 @@ export class Item {
     this.stopCooldown = false
   }
 
-  componentWillLoad() {
+  async componentWillLoad() {
     this.startCoolDown()
+  }
+
+  async componentDidLoad() {
+    const descriptionTag = document.querySelector('.componentt-toast__description')
+    if (descriptionTag && descriptionTag.scrollHeight > 250) {
+      await this.toggleCollapse()
+    }
+  }
+
+  async toggleCollapse() {
+    const descriptionTag = await document.querySelector('.componentt-toast__description')
+    descriptionTag.classList.toggle('componentt-toast__item--collapse')
+    if (descriptionTag.classList.contains('componentt-toast__item--collapse')) {
+      this.buttomViewText = this.viewMoreButtonText
+      return
+    }
+    this.buttomViewText = this.viewLessButtonText
   }
 
   disconnectedCallback() {
@@ -72,6 +93,9 @@ export class Item {
         <div class="componentt-toast__title">{this.toastTitle}</div>
         <div class="componentt-toast__description">
           <slot></slot>
+        </div>
+        <div class="componentt-toast__viewMoreOrLessButton">
+          <button id="viewMoreOrLessButton"  onClick={() => this.toggleCollapse()}>{this.buttomViewText}</button>
         </div>
         <div class="componentt-toast__action">
           <slot name="actions"></slot>

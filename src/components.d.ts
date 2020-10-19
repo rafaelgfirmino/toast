@@ -15,6 +15,8 @@ export namespace Components {
         "progress": boolean;
         "toastTitle": string;
         "type": string;
+        "viewLessButtonText": string;
+        "viewMoreButtonText": string;
     }
 }
 declare global {
@@ -45,6 +47,8 @@ declare namespace LocalJSX {
         "progress"?: boolean;
         "toastTitle"?: string;
         "type"?: string;
+        "viewLessButtonText"?: string;
+        "viewMoreButtonText"?: string;
     }
     interface IntrinsicElements {
         "componentt-toast": ComponenttToast;
