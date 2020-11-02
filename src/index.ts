@@ -19,7 +19,7 @@ export class Toast {
   private toastWrapper: HTMLElement
 
   constructor(toastWrapperConfig: ToastConfigInterface) {
-    this.toastWrapper = document.querySelector('componentt-toast')
+    this.toastWrapper = document.querySelector('ctt-toast')
     if (!this.toastWrapper) {
       const body = document.querySelector('body')
       this.toastWrapper = this.createToastWrapper(toastWrapperConfig)
@@ -28,7 +28,7 @@ export class Toast {
   }
 
   private createToastWrapper(toastWrapperConfig: ToastConfigInterface): HTMLElement {
-    const toastWrapper = document.createElement('componentt-toast')
+    const toastWrapper = document.createElement('ctt-toast')
     toastWrapper.setAttribute('data-theme', toastWrapperConfig.theme)
     toastWrapper.setAttribute('data-placement', toastWrapperConfig.placement)
     return toastWrapper
@@ -36,12 +36,11 @@ export class Toast {
 
   public emit(itemConfig: ItemConfig): void {
     const item = this.createItem(itemConfig)
-
     this.toastWrapper.appendChild(item)
   }
 
   private createItem(itemConfig: ItemConfig): HTMLElement {
-    const item = document.createElement('componentt-toast-item');
+    const item = document.createElement('ctt-toast-item');
     item.innerHTML = ''
     item.setAttribute('type', itemConfig.type)
     item.setAttribute('toast-title', itemConfig.title)
@@ -56,16 +55,19 @@ export class Toast {
     }
 
     item.setAttribute('icon', itemConfig.icon)
-    if (itemConfig.actions) {
-      item.append(this.createSlotActions(itemConfig.actions))
+    if (itemConfig.actions && itemConfig.actions.length > 0) {
+      const actions = this.createSlotActions([...itemConfig.actions])
+      item.append(actions)
     }
     return item
   }
 
-  private createSlotActions(actions: Array<HTMLButtonElement>): HTMLElement {
-    const slotActions = document.createElement('div')
+  private createSlotActions(actions: Array<HTMLElement>) {
+    let slotActions = document.createElement('div')
     slotActions.setAttribute('slot', 'actions')
-    actions.map((action) => slotActions.appendChild(action))
+    actions.map((action) => {
+      slotActions.appendChild(action.cloneNode(true))
+    })
     return slotActions
   }
 }

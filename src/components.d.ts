@@ -6,9 +6,9 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface ComponenttToast {
+    interface CttToast {
     }
-    interface ComponenttToastItem {
+    interface CttToastItem {
         "autoRemove": boolean;
         "cooldown": number;
         "hasDescription": boolean;
@@ -21,27 +21,27 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLComponenttToastElement extends Components.ComponenttToast, HTMLStencilElement {
+    interface HTMLCttToastElement extends Components.CttToast, HTMLStencilElement {
     }
-    var HTMLComponenttToastElement: {
-        prototype: HTMLComponenttToastElement;
-        new (): HTMLComponenttToastElement;
+    var HTMLCttToastElement: {
+        prototype: HTMLCttToastElement;
+        new (): HTMLCttToastElement;
     };
-    interface HTMLComponenttToastItemElement extends Components.ComponenttToastItem, HTMLStencilElement {
+    interface HTMLCttToastItemElement extends Components.CttToastItem, HTMLStencilElement {
     }
-    var HTMLComponenttToastItemElement: {
-        prototype: HTMLComponenttToastItemElement;
-        new (): HTMLComponenttToastItemElement;
+    var HTMLCttToastItemElement: {
+        prototype: HTMLCttToastItemElement;
+        new (): HTMLCttToastItemElement;
     };
     interface HTMLElementTagNameMap {
-        "componentt-toast": HTMLComponenttToastElement;
-        "componentt-toast-item": HTMLComponenttToastItemElement;
+        "ctt-toast": HTMLCttToastElement;
+        "ctt-toast-item": HTMLCttToastItemElement;
     }
 }
 declare namespace LocalJSX {
-    interface ComponenttToast {
+    interface CttToast {
     }
-    interface ComponenttToastItem {
+    interface CttToastItem {
         "autoRemove"?: boolean;
         "cooldown"?: number;
         "hasDescription"?: boolean;
@@ -53,16 +53,16 @@ declare namespace LocalJSX {
         "viewMoreButtonText"?: string;
     }
     interface IntrinsicElements {
-        "componentt-toast": ComponenttToast;
-        "componentt-toast-item": ComponenttToastItem;
+        "ctt-toast": CttToast;
+        "ctt-toast-item": CttToastItem;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "componentt-toast": LocalJSX.ComponenttToast & JSXBase.HTMLAttributes<HTMLComponenttToastElement>;
-            "componentt-toast-item": LocalJSX.ComponenttToastItem & JSXBase.HTMLAttributes<HTMLComponenttToastItemElement>;
+            "ctt-toast": LocalJSX.CttToast & JSXBase.HTMLAttributes<HTMLCttToastElement>;
+            "ctt-toast-item": LocalJSX.CttToastItem & JSXBase.HTMLAttributes<HTMLCttToastItemElement>;
         }
     }
 }

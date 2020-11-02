@@ -18,76 +18,19 @@
   </style>
 </head>
 <body>
-<!--<componentt-toast data-theme="dark" data-placement="bottom">-->
-<!--  <componentt-toast-item title="Title Prop" icon="fi fi flaticon-success" type="success" toast-title="success"-->
-<!--                         cooldown="10000" progress="true">-->
-<!--  </componentt-toast-item>-->
-<!--  <componentt-toast-item title="Title Prop" icon="fi fi flaticon-info" type="info" toast-title="Error" progress="true">-->
-<!--    0 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's-->
-<!--    standard dummy text ever since the 1500s, when an unknown printer took a galley of-->
-<!--    type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text-->
-<!--    of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dumm-->
-<!--    text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to-->
-<!--    make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry.-->
-<!--    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer-->
-<!--    took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of-->
-<!--    the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since-->
-<!--    the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.-->
-<!--  </componentt-toast-item>-->
-<!--  <componentt-toast-item title="Title Prop" icon="fi flaticon-alert" type="warning" toast-title="Toast Title"-->
-<!--                         progress="true">-->
-<!--    0 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's-->
-<!--    standard dummy text ever since the 1500s, when an unknown printer took a galley of-->
-<!--    type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text-->
-<!--    of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dumm-->
-<!--    text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to-->
-<!--    make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry.-->
-<!--    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer-->
-<!--    took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of-->
-<!--    the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since-->
-<!--    the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.-->
-<!--  </componentt-toast-item>-->
-<!--  <componentt-toast-item title="Title Prop" icon="fi fi flaticon-error" type="error" toast-title="Toast Title"-->
-<!--                         progress="true">-->
-<!--    0 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's-->
-<!--    standard dummy text ever since the 1500s, when an unknown printer took a galley of-->
-<!--    type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text-->
-<!--    of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dumm-->
-<!--    text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to-->
-<!--    make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry.-->
-<!--    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer-->
-<!--    took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of-->
-<!--    the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since-->
-<!--    the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.-->
-<!--  </componentt-toast-item>-->
-<!--  <componentt-toast-item title="Title Prop" icon="fi fi flaticon-error" type="error" toast-title="Toast Title" false>-->
-<!--    0 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's-->
-<!--    standard dummy text ever since the 1500s, when an unknown printer took a galley of-->
-<!--    type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text-->
-<!--    of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dumm-->
-<!--    text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to-->
-<!--    make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry.-->
-<!--    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer-->
-<!--    took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of-->
-<!--    the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since-->
-<!--    the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.-->
-<!--  </componentt-toast-item>-->
-<!--</componentt-toast>-->
-<!--    <componentt-toast data-theme="dark" data-placement="top"/>-->
-
 <script type="module">
   import {Toast} from '/build/index.esm.js'
 
   const toast = new Toast({
     theme: 'light',
-    placement: 'top'
+    placement: 'bottom'
   })
   const button = document.createElement('button')
   button.innerHTML = 'ok, this slot works fine'
   button.addEventListener('click', () => console.log('I will clicked'))
 
   toast.emit({
-    type: 'success', title: 'Have a description', progress: true, cooldown: 100000, description: `
+    type: 'success', title: 'Lorem Ipsum is simply', progress: true, cooldown: 100000, description: `
     0 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
     standard dummy text ever since the 1500s, when an unknown printer took a galley of
     type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text
@@ -101,7 +44,16 @@
   `, actions: [button]
   })
   toast.emit({
-    type: 'success', title: 'Title Prop', progress: false, cooldown: 100000,  actions: [button]
+    type: 'error', title: 'Lorem Ipsum is simply', progress: false, cooldown: 100000, actions: [button]
+  })
+  toast.emit({
+    type: 'info', title: 'Lorem Ipsum is simply', progress: false, cooldown: 100000
+  })
+  toast.emit({
+    type: 'warning', title: 'Lorem Ipsum is simply', progress: false, cooldown: 100000, actions: [button]
+  })
+  toast.emit({
+    type: 'warning', title: 'Title Prop', progress: false, cooldown: 100000
   })
 </script>
 </body>

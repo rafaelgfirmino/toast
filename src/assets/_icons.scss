@@ -33,7 +33,7 @@
   font-smoothing: antialiased;
 }
 
-.flaticon-alert:before {
+.flaticon-warning:before {
   content: "\f100";
 }
 
@@ -49,7 +49,7 @@
   content: "\f103";
 }
 
-$font-Flaticon-alert: "\f100";
+$font-Flaticon-warning: "\f100";
 $font-Flaticon-success: "\f101";
 $font-Flaticon-info: "\f102";
 $font-Flaticon-error: "\f103";

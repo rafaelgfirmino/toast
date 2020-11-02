@@ -1,15 +1,15 @@
 @import "icons";
 
-$root: ".componentt-toast";
+$root: ".ctt-toast";
 
 :root {
-  --componentt-toast-margin: 16px;
-  --componentt-toast-min-width: 350px;
-  --componentt-toast-max-width: 350px;
-  --componentt-toast-success-color: #54A668;
-  --componentt-toast-info-color: #71C3DD;
-  --componentt-toast-warning-color: #F3CC6B;
-  --componentt-toast-error-color: #DF6962;
+  --ctt-toast-margin: 16px;
+  --ctt-toast-min-width: 350px;
+  --ctt-toast-max-width: 350px;
+  --ctt-toast-success-color: #54A668;
+  --ctt-toast-info-color: #71C3DD;
+  --ctt-toast-warning-color: #F3CC6B;
+  --ctt-toast-error-color: #DF6962;
 }
 
 $transition-default: cubic-bezier(0.5, 0, 0.1, 1);
@@ -17,23 +17,23 @@ $transition-default: cubic-bezier(0.5, 0, 0.1, 1);
 $transition-in: cubic-bezier(0, 0, 0.25, 1);
 
 $transition-out: cubic-bezier(0.25, 0, 1, 1);
-
+$font-size: 12px;
 #{$root} {
   align-items: center;
   display: flex;
   list-style: none;
-  margin: var(--componentt-toast-margin);
+  margin: var(--ctt-toast-margin);
   opacity: 1;
   padding: 0 0 10px 0;
   position: fixed;
   right: 0;
   transition: opacity 150ms $transition-default;
-  min-width: var(--componentt-toast-min-width);
-  max-width: var(--componentt-toast-max-width);
+  min-width: var(--ctt-toast-min-width);
+  max-width: var(--ctt-toast-max-width);
 
   &__icon {
     display: flex;
-    font-size: 1.6rem;
+    font-size: 12px;
     grid-area: icon;
     justify-content: flex-start;
     padding: 0px 8px;
@@ -41,31 +41,31 @@ $transition-out: cubic-bezier(0.25, 0, 1, 1);
     align-items: center;
   }
 
-  &__title {
+  &__title {;
     text-transform: uppercase;
-    font-size: 1.6rem;
-    padding-top: 0.2rem;
+    font-size: 14px;
+    padding-top: 2px;
     display: flex;
     align-items: center;
   }
 
   &__close {
     display: flex;
-    font-size: 1.6rem;
+    font-size: $font-size;
     grid-area: close;
     justify-content: center;
 
     button {
       display: block;
-      height: 38px;
-      padding: 5px 8px;
+      height: 34px;
+      padding: 5px;
       text-align: center;
       width: 100%;
     }
   }
 
   &__description {
-    font-size: 1.4rem;
+    font-size: 14px;
     grid-area: description;
     margin: 1px 0px 5px 1px;
     max-height: 67px;
@@ -80,7 +80,10 @@ $transition-out: cubic-bezier(0.25, 0, 1, 1);
     }
   }
   &__viewMoreOrLessButton{
-    width: 100%;
+    grid-area: viewMore;
+    display: flex;
+    justify-content: flex-end;
+    padding:5px;
   }
 
   &__action {
@@ -91,7 +94,6 @@ $transition-out: cubic-bezier(0.25, 0, 1, 1);
       display: inline-block;
       font-size: 1.3rem;
       padding: 0 8px 10px;
-      text-transform: uppercase;
       color: var(--brain-toast-action-color);
 
       &:hover,
@@ -155,11 +157,15 @@ $transition-out: cubic-bezier(0.25, 0, 1, 1);
   &__item {
     padding: 5px;
     box-shadow: 1px 2px 2px 2px #00000030;
-    border-radius: 2px;
+    border-radius: 4px;
     opacity: 1;
     animation: append-in 300ms $transition-in forwards;
     display: grid;
-    grid-template: [header] "icon title close" auto [body] "description description description" auto [footer] "action action action" [progress] "progress progress progress" auto / 38px 1fr 38px;
+    grid-template: [header] "icon title close" auto
+    [body] "description description description" auto
+    [viewMore] "viewMore viewMore viewMore" auto
+    [footer] "action action action"
+    [progress] "progress progress progress" auto / 38px 1fr 38px;
     overflow: hidden;
     position: relative;
     transform-origin: center bottom;
@@ -201,10 +207,10 @@ $transition-out: cubic-bezier(0.25, 0, 1, 1);
   &--success {
     #{$root} {
       &__description,
-      &__icon {
+      &__icon, &__action{
         button,
         a, i {
-          color: var(--componentt-toast-success-color);
+          color: var(--ctt-toast-success-color);
         }
       }
     }
@@ -213,21 +219,22 @@ $transition-out: cubic-bezier(0.25, 0, 1, 1);
   &--info {
     #{$root} {
       &__description,
-      &__icon {
+
+      &__icon, &__action{
         button,
         a, i {
-          color: var(--componentt-toast-info-color);
+          color: var(--ctt-toast-info-color);
         }
       }
 
       &__description {
         ::-webkit-scrollbar-thumb:hover {
-          background: var(--componentt-toast-info-color);
+          background: var(--ctt-toast-info-color);
         }
       }
 
       &__bar::-webkit-progress-value, &__bar {
-        background-color: var(--componentt-toast-info-color);;
+        background-color: var(--ctt-toast-info-color);;
       }
     }
   }
@@ -236,21 +243,21 @@ $transition-out: cubic-bezier(0.25, 0, 1, 1);
     #{$root} {
       &__description,
       &__icon,
-      &__action {
+      &__icon, &__action{
         button,
         a, i {
-          color: var(--componentt-toast-warning-color);
+          color: var(--ctt-toast-warning-color);
         }
       }
 
       &__description {
         ::-webkit-scrollbar-thumb:hover {
-          background: var(--componentt-toast-warning-color);
+          background: var(--ctt-toast-warning-color);
         }
       }
 
       &__bar::-webkit-progress-value, &__bar {
-        background-color: var(--componentt-toast-warning-color);
+        background-color: var(--ctt-toast-warning-color);
       }
     }
   }
@@ -259,14 +266,14 @@ $transition-out: cubic-bezier(0.25, 0, 1, 1);
     #{$root} {
       &__description,
       &__icon,
-      &__action {
+      &__icon, &__action{
         button,
         a, i {
-          color: var(--componentt-toast-error-color);
+          color: var(--ctt-toast-error-color);
         }
       }
       &__bar::-webkit-progress-value, &__bar {
-        background-color: var(--componentt-toast-error-color);
+        background-color: var(--ctt-toast-error-color);
       }
     }
   }
@@ -275,17 +282,18 @@ $transition-out: cubic-bezier(0.25, 0, 1, 1);
     width: 12px;
   }
 
-  #toggleColapse{
-  }
-
-
 }
 
 [data-theme~='dark'] {
   #{$root} {
+    &__item {
+      background: #222222;
+    }
+
     &__title,
     &__close > button,
-    &__description {
+    &__description,
+    &__viewMoreOrLessButton button{
       color: #f0f0f0;
     }
   }
@@ -302,8 +310,6 @@ $transition-out: cubic-bezier(0.25, 0, 1, 1);
 }
 
 [data-theme~='light'] {
-  top: 0;
-
   #{$root} {
 
     &__item {
@@ -329,6 +335,8 @@ $transition-out: cubic-bezier(0.25, 0, 1, 1);
 }
 
 [data-placement~='top'] {
+  top: 0;
+
   flex-direction: column-reverse;
 
   #{$root} {
@@ -347,12 +355,13 @@ $transition-out: cubic-bezier(0.25, 0, 1, 1);
     }
 
     &__item:nth-child(4) {
+      opacity: 0.95;
       transform: translateY(-7px) scale(0.98);
       z-index: 1990;
     }
 
     &__item:nth-child(5) {
-      opacity: 0.8;
+      opacity: 0.9;
       transform: translateY(-13px) scale(0.95);
       z-index: 1980;
     }
@@ -382,12 +391,13 @@ $transition-out: cubic-bezier(0.25, 0, 1, 1);
     }
 
     &__item:nth-child(4) {
+      opacity: 0.95;
       transform: translateY(-3px) scale(0.98);
       z-index: 1990;
     }
 
     &__item:nth-child(5) {
-      opacity: 0.8;
+      opacity: 0.9;
       transform: translateY(2px) scale(0.95);
       z-index: 1980;
     }

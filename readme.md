@@ -1,75 +1,146 @@
-![Built With Stencil](https://img.shields.io/badge/-Built%20With%20Stencil-16161d.svg?logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjIuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI%2BCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI%2BCgkuc3Qwe2ZpbGw6I0ZGRkZGRjt9Cjwvc3R5bGU%2BCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00MjQuNywzNzMuOWMwLDM3LjYtNTUuMSw2OC42LTkyLjcsNjguNkgxODAuNGMtMzcuOSwwLTkyLjctMzAuNy05Mi43LTY4LjZ2LTMuNmgzMzYuOVYzNzMuOXoiLz4KPHBhdGggY2xhc3M9InN0MCIgZD0iTTQyNC43LDI5Mi4xSDE4MC40Yy0zNy42LDAtOTIuNy0zMS05Mi43LTY4LjZ2LTMuNkgzMzJjMzcuNiwwLDkyLjcsMzEsOTIuNyw2OC42VjI5Mi4xeiIvPgo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNDI0LjcsMTQxLjdIODcuN3YtMy42YzAtMzcuNiw1NC44LTY4LjYsOTIuNy02OC42SDMzMmMzNy45LDAsOTIuNywzMC43LDkyLjcsNjguNlYxNDEuN3oiLz4KPC9zdmc%2BCg%3D%3D&colorA=16161d&style=flat-square)
+#Componentt-toast
 
-# Stencil Component Starter
+This is a very simple and easy library for using toast in your application. 
+ 
+> componentt-toast is created using [Stencil](https://stenciljs.com/) 
 
-This is a starter project for building a standalone Web Component using Stencil.
+This library is inspired in a [codepen post](https://codepen.io/mtsgeneroso/pen/JVWqKe)
 
-Stencil is also great for building entire apps. For that, use the [stencil-app-starter](https://github.com/ionic-team/stencil-app-starter) instead.
 
-# Stencil
+## Styles
+componentt-toast have a two themes and two positions
 
-Stencil is a compiler for building fast web apps using Web Components.
+Light - top
+![Light top](readme-images/light-top.png)
 
-Stencil combines the best concepts of the most popular frontend frameworks into a compile-time rather than run-time tool.  Stencil takes TypeScript, JSX, a tiny virtual DOM layer, efficient one-way data binding, an asynchronous rendering pipeline (similar to React Fiber), and lazy-loading out of the box, and generates 100% standards-based Web Components that run in any browser supporting the Custom Elements v1 spec.
+Light - bottom 
+![Light Bottom](readme-images/light-bottom.png)
 
-Stencil components are just Web Components, so they work in any major framework or with no framework at all.
 
-## Getting Started
+dark - top
+![Dark top](readme-images/dark-top.png)
 
-To start building a new web component using Stencil, clone this repo to a new directory:
+dark - bottom 
+![Dark Bottom](readme-images/dark-bottom.png)
 
-```bash
-git clone https://github.com/ionic-team/stencil-component-starter.git my-component
-cd my-component
-git remote rm origin
+
+# Usage
+
+```js
+
+<script type="module">
+  import {Toast} from '/build/index.esm.js'
+
+  const toast = new Toast({
+    theme: 'light', // or dark
+    placement: 'bottom' // or top
+  })
+
+  //create a element for put in action section   
+  const button = document.createElement('button')
+  button.innerHTML = 'ok, this slot works fine'
+  button.addEventListener('click', () => console.log('I will clicked'))
+
+  toast.emit({
+    type: 'success', title: 'Lorem Ipsum is simply', progress: true, cooldown: 100000, description: `
+    0 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+    standard dummy text ever since the 1500s, when an unknown printer took a galley of
+    type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text
+    of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dumm
+    text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
+    make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
+    took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of
+    the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since
+    the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+  `, actions: [button]
+  })
+  toast.emit({
+    type: 'error', title: 'Lorem Ipsum is simply', progress: false, cooldown: 100000, actions: [button]
+  })
+  toast.emit({
+    type: 'info', title: 'Lorem Ipsum is simply', progress: false, cooldown: 100000
+  })
+  toast.emit({
+    type: 'warning', title: 'Lorem Ipsum is simply', progress: false, cooldown: 100000, actions: [button]
+  })
+  toast.emit({
+    type: 'warning', title: 'Title Prop', progress: false, cooldown: 100000
+  })
+</script>
 ```
 
-and run:
+#Creating a custom theme;
+```css
+[data-theme~='dark'] {
+  #{$root} {
+    &__item {
+      background: #222222;
+    }
 
-```bash
-npm install
-npm start
+    &__title,
+    &__close > button,
+    &__description,
+    &__viewMoreOrLessButton button{
+      color: #f0f0f0;
+    }
+  }
+
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 100px rgba(36, 37, 42, 0.9);
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 100px rgba(136, 136, 143, 1);
+  }
+}
+```
+#Custom placement
+```css
+[data-placement~='top'] {
+  top: 0;
+
+  flex-direction: column-reverse;
+
+  #{$root} {
+
+    &__item:not(:last-child) {
+      margin-top: 8px;
+    }
+
+    &__item:nth-child(n + 4) {
+      top: 0;
+      margin-top: 8px;
+    }
+
+    &__item:nth-child(n + 6) {
+      opacity: 0;
+    }
+
+    &__item:nth-child(4) {
+      opacity: 0.95;
+      transform: translateY(-7px) scale(0.98);
+      z-index: 1990;
+    }
+
+    &__item:nth-child(5) {
+      opacity: 0.9;
+      transform: translateY(-13px) scale(0.95);
+      z-index: 1980;
+    }
+
+  }
+}
 ```
 
-To build the component for production, run:
+#Icon
 
-```bash
-npm run build
+Yours custom icon 
+
+```js
+  toast.emit({
+    type: 'error', title: 'Lorem Ipsum is simply', icon:"fa fa-alert", progress: false, cooldown: 100000, actions: [button]
+  })
 ```
-
-To run the unit tests for the components, run:
-
-```bash
-npm test
-```
-
-Need help? Check out our docs [here](https://stenciljs.com/docs/my-first-component).
-
-
-## Naming Components
-
-When creating new component tags, we recommend _not_ using `stencil` in the component name (ex: `<stencil-datepicker>`). This is because the generated component has little to nothing to do with Stencil; it's just a web component!
-
-Instead, use a prefix that fits your company or any name for a group of related components. For example, all of the Ionic generated web components use the prefix `ion`.
-
-
-## Using this component
-
-There are three strategies we recommend for using web components built with Stencil.
-
-The first step for all three of these strategies is to [publish to NPM](https://docs.npmjs.com/getting-started/publishing-npm-packages).
-
-### Script tag
-
-- Put a script tag similar to this `<script src='https://unpkg.com/my-component@0.0.1/dist/mycomponent.js'></script>` in the head of your index.html
-- Then you can use the element anywhere in your template, JSX, html etc
-
-### Node Modules
-- Run `npm install my-component --save`
-- Put a script tag similar to this `<script src='node_modules/my-component/dist/mycomponent.js'></script>` in the head of your index.html
-- Then you can use the element anywhere in your template, JSX, html etc
-
-### In a stencil-starter app
-- Run `npm install my-component --save`
-- Add an import to the npm packages `import my-component;`
-- Then you can use the element anywhere in your template, JSX, html etc

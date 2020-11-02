@@ -1,15 +1,15 @@
 @import "icons";
 
-$root: ".componentt-toast";
+$root: ".ctt-toast";
 
 :root {
-  --componentt-toast-margin: 16px;
-  --componentt-toast-min-width: 350px;
-  --componentt-toast-max-width: 350px;
-  --componentt-toast-success-color: #54A668;
-  --componentt-toast-info-color: #71C3DD;
-  --componentt-toast-warning-color: #F3CC6B;
-  --componentt-toast-error-color: #DF6962;
+  --ctt-toast-margin: 16px;
+  --ctt-toast-min-width: 350px;
+  --ctt-toast-max-width: 350px;
+  --ctt-toast-success-color: #54A668;
+  --ctt-toast-info-color: #71C3DD;
+  --ctt-toast-warning-color: #F3CC6B;
+  --ctt-toast-error-color: #DF6962;
 }
 
 $transition-default: cubic-bezier(0.5, 0, 0.1, 1);
@@ -22,14 +22,14 @@ $font-size: 12px;
   align-items: center;
   display: flex;
   list-style: none;
-  margin: var(--componentt-toast-margin);
+  margin: var(--ctt-toast-margin);
   opacity: 1;
   padding: 0 0 10px 0;
   position: fixed;
   right: 0;
   transition: opacity 150ms $transition-default;
-  min-width: var(--componentt-toast-min-width);
-  max-width: var(--componentt-toast-max-width);
+  min-width: var(--ctt-toast-min-width);
+  max-width: var(--ctt-toast-max-width);
 
   &__icon {
     display: flex;
@@ -157,7 +157,7 @@ $font-size: 12px;
   &__item {
     padding: 5px;
     box-shadow: 1px 2px 2px 2px #00000030;
-    border-radius: 2px;
+    border-radius: 4px;
     opacity: 1;
     animation: append-in 300ms $transition-in forwards;
     display: grid;
@@ -210,7 +210,7 @@ $font-size: 12px;
       &__icon, &__action{
         button,
         a, i {
-          color: var(--componentt-toast-success-color);
+          color: var(--ctt-toast-success-color);
         }
       }
     }
@@ -223,18 +223,18 @@ $font-size: 12px;
       &__icon, &__action{
         button,
         a, i {
-          color: var(--componentt-toast-info-color);
+          color: var(--ctt-toast-info-color);
         }
       }
 
       &__description {
         ::-webkit-scrollbar-thumb:hover {
-          background: var(--componentt-toast-info-color);
+          background: var(--ctt-toast-info-color);
         }
       }
 
       &__bar::-webkit-progress-value, &__bar {
-        background-color: var(--componentt-toast-info-color);;
+        background-color: var(--ctt-toast-info-color);;
       }
     }
   }
@@ -246,18 +246,18 @@ $font-size: 12px;
       &__icon, &__action{
         button,
         a, i {
-          color: var(--componentt-toast-warning-color);
+          color: var(--ctt-toast-warning-color);
         }
       }
 
       &__description {
         ::-webkit-scrollbar-thumb:hover {
-          background: var(--componentt-toast-warning-color);
+          background: var(--ctt-toast-warning-color);
         }
       }
 
       &__bar::-webkit-progress-value, &__bar {
-        background-color: var(--componentt-toast-warning-color);
+        background-color: var(--ctt-toast-warning-color);
       }
     }
   }
@@ -269,11 +269,11 @@ $font-size: 12px;
       &__icon, &__action{
         button,
         a, i {
-          color: var(--componentt-toast-error-color);
+          color: var(--ctt-toast-error-color);
         }
       }
       &__bar::-webkit-progress-value, &__bar {
-        background-color: var(--componentt-toast-error-color);
+        background-color: var(--ctt-toast-error-color);
       }
     }
   }
@@ -310,8 +310,6 @@ $font-size: 12px;
 }
 
 [data-theme~='light'] {
-  top: 0;
-
   #{$root} {
 
     &__item {
@@ -337,6 +335,8 @@ $font-size: 12px;
 }
 
 [data-placement~='top'] {
+  top: 0;
+
   flex-direction: column-reverse;
 
   #{$root} {
@@ -355,12 +355,13 @@ $font-size: 12px;
     }
 
     &__item:nth-child(4) {
+      opacity: 0.95;
       transform: translateY(-7px) scale(0.98);
       z-index: 1990;
     }
 
     &__item:nth-child(5) {
-      opacity: 0.8;
+      opacity: 0.9;
       transform: translateY(-13px) scale(0.95);
       z-index: 1980;
     }
@@ -390,12 +391,13 @@ $font-size: 12px;
     }
 
     &__item:nth-child(4) {
+      opacity: 0.95;
       transform: translateY(-3px) scale(0.98);
       z-index: 1990;
     }
 
     &__item:nth-child(5) {
-      opacity: 0.8;
+      opacity: 0.9;
       transform: translateY(2px) scale(0.95);
       z-index: 1980;
     }

@@ -1,7 +1,7 @@
 import {Component, Element, h, Host, Listen, Prop, State} from '@stencil/core';
 
 @Component({
-  tag: 'componentt-toast-item',
+  tag: 'ctt-toast-item',
   shadow: false,
 })
 export class Item {
@@ -38,16 +38,16 @@ export class Item {
   }
 
   async componentDidLoad() {
-    const descriptionTag = this.element.querySelector('.componentt-toast__description')
+    const descriptionTag = this.element.querySelector('.ctt-toast__description')
     if (descriptionTag && descriptionTag.scrollHeight > 250) {
       await this.toggleCollapse()
     }
   }
 
   async toggleCollapse() {
-    const descriptionTag = await this.element.querySelector('.componentt-toast__description')
-    descriptionTag.classList.toggle('componentt-toast__item--collapse')
-    if (descriptionTag.classList.contains('componentt-toast__item--collapse')) {
+    const descriptionTag = await this.element.querySelector('.ctt-toast__description')
+    descriptionTag.classList.toggle('ctt-toast__item--collapse')
+    if (descriptionTag.classList.contains('ctt-toast__item--collapse')) {
       this.buttomViewText = this.viewMoreButtonText
       return
     }
@@ -84,31 +84,31 @@ export class Item {
 
   render() {
     return (
-      <Host class={`componentt-toast__item componentt-toast--${this.type}`}>
-        <div class="componentt-toast__icon">
+      <Host class={`ctt-toast__item ctt-toast--${this.type}`}>
+        <div class="ctt-toast__icon">
           <i class={this.icon}></i>
         </div>
-        <div class="componentt-toast__close">
-          <button id="componentt-toast__close-" onClick={() => this.removeElement()}>X</button>
+        <div class="ctt-toast__close">
+          <button id="ctt-toast__close-" onClick={() => this.removeElement()}>X</button>
         </div>
-        <div class="componentt-toast__title">{this.toastTitle}</div>
+        <div class="ctt-toast__title">{this.toastTitle}</div>
         {this.hasDescription ?
-          <div class="componentt-toast__description">
+          <div class="ctt-toast__description">
             <slot></slot>
           </div>
           : ''}
         {this.hasDescription ?
-          <div class="componentt-toast__viewMoreOrLessButton">
+          <div class="ctt-toast__viewMoreOrLessButton">
             <button id="viewMoreOrLessButton" onClick={() => this.toggleCollapse()}>{this.buttomViewText}</button>
           </div>
           : ''
         }
-        <div class="componentt-toast__action">
+        <div class="ctt-toast__action">
           <slot name="actions"></slot>
         </div>
         {this.progress ?
-          <div class="componentt-toast__progress">
-            <progress class="componentt-toast__bar" max="100" value={this.progressValue}/>
+          <div class="ctt-toast__progress">
+            <progress class="ctt-toast__bar" max="100" value={this.progressValue}/>
           </div>
           : ''
         }
