@@ -2,7 +2,7 @@ import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
 
 export const config: Config = {
-  namespace: 'toast',
+  namespace: 'ctt-toast',
   globalStyle: './src/assets/toast.scss',
   outputTargets: [
     {

@@ -1,7 +1,11 @@
 {
   "name": "@componentt/toast",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Agnostic toast component",
+  "author": {
+    "name": "Rafael G Firmino",
+    "email": "rafaelgfirmino@gmail.com"
+  },
   "main": "dist/index.cjs.js",
   "module": "dist/custom-elements/index.js",
   "es2015": "dist/esm/index.mjs",
