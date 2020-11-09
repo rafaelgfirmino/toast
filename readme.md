@@ -144,3 +144,7 @@ Yours custom icon
     type: 'error', title: 'Lorem Ipsum is simply', icon:"fa fa-alert", progress: false, cooldown: 100000, actions: [button]
   })
 ```
+
+
+#Example
+https://codepen.io/Rafaelgfirmino/pen/yLJRVPa
