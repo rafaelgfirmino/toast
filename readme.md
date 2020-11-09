@@ -1,4 +1,4 @@
-#Componentt-toast
+# Componentt-toast
 
 This is a very simple and easy library for using toast in your application. 
  
@@ -70,7 +70,7 @@ dark - bottom
 </script>
 ```
 
-#Creating a custom theme;
+# Creating a custom theme;
 ```css
 [data-theme~='dark'] {
   .ctt-toast {
@@ -97,7 +97,7 @@ dark - bottom
   }
 }
 ```
-#Custom placement
+# Custom placement
 ```css
 [data-placement~='top'] {
   top: 0;
@@ -135,7 +135,7 @@ dark - bottom
 }
 ```
 
-#Icon
+# Icon
 
 Yours custom icon 
 
