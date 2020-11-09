@@ -73,7 +73,7 @@ dark - bottom
 #Creating a custom theme;
 ```css
 [data-theme~='dark'] {
-  #{$root} {
+  .ctt-toast {
     &__item {
       background: #222222;
     }
@@ -104,7 +104,7 @@ dark - bottom
 
   flex-direction: column-reverse;
 
-  #{$root} {
+  .ctt-toast {
 
     &__item:not(:last-child) {
       margin-top: 8px;
